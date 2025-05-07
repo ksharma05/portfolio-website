@@ -1,12 +1,43 @@
-# React + Vite
+# Project Setup
+1) Installed Tailwind Css
+2) Installed DaisyUI
+3) Installed React Router
+4) Installed GSAP
+5) Used ScrollTrigger from GSAP to modify the scroll behaviour
+6) Used ScrollSmoother from GSAP to ensure smooth scroll throughout the page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Project Plan
+## Pages
+1) Landing
+2) Portfolio
+   a) Project Page
+3) About Us
+4) Contact Us
+5) Privacy Policy
+6) Terms of Service
+
+## Features
+1) Responsive Design
+2) Landing Page
+    Preview of all the sections > Button > Redirect to respective page
+3) Portfolio Page
+    Collection of all the albums > Each card clickable > Redirect to Project Page ( Dynamic Routing)
+        Project Page
+        Collection of all the items in the respective album
+4) About Us
+    All about Just Films
+5) Contact Us
+    Form to send message
+6) Policy pages to list all the policies.
+
+## HomePage structure and components
+    Header > Logo + Navigation Links + Social Icons
+    Hero Section > Image/Video preview with Text overlay and a Button to Contact Page
+    USP section
+    Portfolio Cards
+    Stats for Satisfied Clients + No of Clients + Fast Delivery
+    Footer
