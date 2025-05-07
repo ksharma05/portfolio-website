@@ -1,8 +1,8 @@
-import TopBar from "./assets/components/TopBar";
+import TopBar from "./components/TopBar";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -10,13 +10,9 @@ function App() {
   const component = useRef();
   const slider = useRef();
 
-  useLayoutEffect(() => {
-    let scroller = ScrollSmoother.create({
-      smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-      effects: true, // looks for data-speed and data-lag attributes on elements
-      smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-    });
-    scroller.effects(".box", {speed: 0.5, lag: 0.1});
+  useEffect(() => {
+    if (!slider.current || !component.current) return;
+   
     let ctx = gsap.context(() => {
       let panels = gsap.utils.toArray(".panel");
       gsap.to(panels, {
@@ -31,23 +27,28 @@ function App() {
         },
       });
     }, component);
-    return () => ctx.revert();
-  });
+    return () => {
+      ctx.revert()
+   
+      };
+  }, []);
+
+
 
   return (
     <>
       <TopBar />
-      <div className="App" id="box" ref={component}>
-        <div className="flex flex-col justify-center items-center h-screen bg-amber-400" >
+      <div className="App"ref={component}>
+        <div className="flex flex-col justify-center items-center h-screen" >
           <h1>Testing horizontal scrolling w/ three sections</h1>
           <h2>First Container</h2>
         </div>
-        <div className="flex flex-col justify-center items-center h-screen bg-amber-400">
+        <div className="flex flex-col justify-center items-center h-screen">
           <h1>Testing horizontal scrolling w/ three sections</h1>
           <h2>New Container</h2>
         </div>
         <div ref={slider} className="h-screen w-[400vw] flex flex-wrap">
-          <div className="description h-screen w-screen bg-blue-700">
+          <div className="description h-screen w-screen">
             <div>
               SCROLL DOWN
               <div className="scroll-down">
