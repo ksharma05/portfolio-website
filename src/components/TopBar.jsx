@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const TopBar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm z-50 sticky">
+    <div className="navbar bg-base-100 shadow-sm z-50 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,36 +27,36 @@ const TopBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About Us</a>
-            </li>
-            <li>
-              <a>Contact</a>
-            </li>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="/portfolio">
+              <li>Portfolio</li>
+            </Link>
+            <Link to="/about">
+              <li>About Us</li>
+            </Link>
+            <Link to="/contact">
+              <li>Contact</li>
+            </Link>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Just Films</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-        <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About Us</a>
-            </li>
-            <li>
-              <a>Contact</a>
-            </li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/portfolio">
+            <li>Portfolio</li>
+          </Link>
+          <Link to="/about">
+            <li>About Us</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
         </ul>
       </div>
       <div className="navbar-end">
@@ -65,5 +66,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar
-;
+export default TopBar;

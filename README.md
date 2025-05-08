@@ -4,7 +4,9 @@
 3) Installed React Router
 4) Installed GSAP
 5) Used ScrollTrigger from GSAP to modify the scroll behaviour
-6) Used ScrollSmoother from GSAP to ensure smooth scroll throughout the page
+6) Added image to Hero section
+7) Added content to Sub Hero Section
+8) Templatized few sections of page i.e Section, Panel, IntroSlider
 
 
 

@@ -1,68 +1,41 @@
+import Body from "./components/Body";
+import Landing from "./components/Landing";
+import ErrorPage from "./components/ErrorPage";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import About from "./components/About";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 import TopBar from "./components/TopBar";
-import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap/all";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 
 function App() {
-  const component = useRef();
-  const slider = useRef();
-
-  useEffect(() => {
-    if (!slider.current || !component.current) return;
-   
-    let ctx = gsap.context(() => {
-      let panels = gsap.utils.toArray(".panel");
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: slider.current,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (panels.length - 1),
-          end: () => "+=" + slider.current.offsetWidth,
-        },
-      });
-    }, component);
-    return () => {
-      ctx.revert()
-   
-      };
-  }, []);
-
-
-
+  const routerConfig = createBrowserRouter([{
+    path: "/",
+    element: <Body />,
+    children:[{
+      path: "/",
+      element: <Landing />,
+    },{
+      path: "/portfolio",
+      element: <Portfolio />,
+    },{
+      path: "/about",
+      element: <About />,
+    },{
+      path: "/contact",
+      element: <Contact />,
+    }]
+  },{
+    path:"error",
+    element: <ErrorPage />,
+  }]);
   return (
     <>
-      <TopBar />
-      <div className="App"ref={component}>
-        <div className="flex flex-col justify-center items-center h-screen" >
-          <h1>Testing horizontal scrolling w/ three sections</h1>
-          <h2>First Container</h2>
-        </div>
-        <div className="flex flex-col justify-center items-center h-screen">
-          <h1>Testing horizontal scrolling w/ three sections</h1>
-          <h2>New Container</h2>
-        </div>
-        <div ref={slider} className="h-screen w-[400vw] flex flex-wrap">
-          <div className="description h-screen w-screen">
-            <div>
-              SCROLL DOWN
-              <div className="scroll-down">
-                <div className="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div className="panel h-screen w-screen bg-purple-500">New Container</div>
-          <div className="panel h-screen w-screen bg-red-500">ONE</div>
-          <div className="panel h-screen w-screen bg-orange-400">TWO</div>
-          <div className="panel h-screen w-screen bg-emerald-500">THREE</div>
-        </div>
-        <div className="flex h-screen bg-amber-400">Last Container</div>
-      </div>
+    
+      <RouterProvider router={routerConfig} />
+      
+     
     </>
   );
 }
