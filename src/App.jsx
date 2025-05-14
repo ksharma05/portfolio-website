@@ -6,6 +6,7 @@ import About from "./components/About";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import TopBar from "./components/TopBar";
+import Album from "./components/Album";
 
 
 
@@ -25,6 +26,9 @@ function App() {
     },{
       path: "/contact",
       element: <Contact />,
+    },{
+      path: "/portfolio/:id",
+      element: <Album />
     }]
   },{
     path:"error",

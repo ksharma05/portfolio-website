@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui"{
+  themes: coffee, retro, dark --default;
+}
 
 body {
   overflow-y: visible;
@@ -21,3 +23,5 @@ body {
 }
 
 
+
+ 

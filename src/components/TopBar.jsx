@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const TopBar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm z-50 ">
+    <div className="navbar bg-base-100 shadow-sm z-50 fixed">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,8 +43,8 @@ const TopBar = () => {
         </div>
         <a className="btn btn-ghost text-xl">Just Films</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex lg:w-1/2 ">
+        <ul className="menu menu-horizontal px-1 w-full justify-evenly">
           <Link to="/">
             <li>Home</li>
           </Link>

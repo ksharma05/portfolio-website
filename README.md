@@ -7,6 +7,11 @@
 6) Added image to Hero section
 7) Added content to Sub Hero Section
 8) Templatized few sections of page i.e Section, Panel, IntroSlider
+9) Installed formik and used it to create a form
+10) Added a footer from Daisy UI and modified it.
+11) Made portfolio page using GSAP
+12) Used id's to go to Album page.
+13) 
 
 
 
